@@ -41,4 +41,12 @@ class AuthController extends AbstractController
 
         return new JsonResponse(['message' => 'User registered successfully'], Response::HTTP_CREATED);
     }
+
+    #[Route('/api/logout', name: 'api_logout', methods: ['POST'])]
+    public function logout(): JsonResponse
+    {
+        $response = new JsonResponse(['message' => 'Logged out']);
+        $response->headers->clearCookie('BEARER');
+        return $response;
+    }
 }
