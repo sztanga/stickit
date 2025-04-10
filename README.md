@@ -37,3 +37,12 @@ stickit/
 │   ├── docker/            # Dockerfile for backend
 └──docker-compose.yml      # Main Docker
 ```
+
+## How I think
+1. I started off with putting a plan of action. To make it easy for you to test I decided to create 2 directories: backend and frontend, normally I'd have 2 separate repos for both frontend and backend.
+2. It was wiser to start with the backend first, expose API endpoints to the world and then proceed on the frontend.
+3. I setup docker with php 8.4 and mysql 8.
+4. I started off with registration, proceeded to the login, had some issues with JWT token but managed to sort it without spending too much time on fixing it.
+5. Got login and logout working in no time. I've setup Postman Collection.
+6. Started working on the notes, exposed CRUD endpoints via the api for authenticated users only.
+7. 
