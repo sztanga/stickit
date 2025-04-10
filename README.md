@@ -35,5 +35,5 @@ docker compose up --build
 stickit/
 ├── backend/               # Symfony backend
 │   ├── docker/            # Dockerfile for backend
-└──docker-compose.yml     # Main Docker
+└──docker-compose.yml      # Main Docker
 ```
