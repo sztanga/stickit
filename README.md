@@ -46,4 +46,8 @@ stickit/
 4. I started off with registration, proceeded to the login, had some issues with JWT token but managed to sort it without spending too much time on fixing it.
 5. Got login and logout working in no time. I've setup Postman Collection.
 6. Started working on the notes, exposed CRUD endpoints via the api for authenticated users only.
-7. 
+7. I jumped into frontend now. Build login page and registration page according to the design provided in the task.
+
+## TODO:
+- Backend: trying to register with existing email address <!-- An exception occurred while executing a query: SQLSTATE[23000]: Integrity constraint violation: 1062 Duplicate entry 'test@test.com' for key 'user.UNIQ_IDENTIFIER_EMAIL' (500 Internal Server Error) -->
+- Backend: registration only works for logged in users >.<
