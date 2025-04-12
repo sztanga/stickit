@@ -56,4 +56,16 @@ class AuthController extends AbstractController
         $response->headers->clearCookie('BEARER');
         return $response;
     }
+
+    #[Route('/api/me', name: 'api_me', methods: ['GET'])]
+    public function me(): JsonResponse
+    {
+        $user = $this->getUser();
+
+        if (!$user) {
+            return $this->json(['error' => 'Unauthorized'], 401);
+        }
+
+        return $this->json(['email' => $user->getUserIdentifier()]);
+    }
 }

@@ -77,6 +77,23 @@
 						}
 					},
 					"response": []
+				},
+				{
+					"name": "Me (current user data)",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/me",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"me"
+							]
+						}
+					},
+					"response": []
 				}
 			]
 		},
