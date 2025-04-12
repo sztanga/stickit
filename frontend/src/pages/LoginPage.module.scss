@@ -1,0 +1,105 @@
+.loginPage {
+  display: flex;
+  height: 100vh;
+  font-family: 'Inter', sans-serif;
+
+  @media (max-width: 768px) {
+    flex-direction: column;
+  }
+}
+
+.leftPane {
+  flex: 1;
+  background: linear-gradient(180deg, #0474e5, #021d7c);
+  color: white;
+  padding: 4rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  position: relative;
+  overflow: hidden;
+
+  h1 {
+    font-size: 2.5rem;
+    margin: 0 0 10px 0;
+    font-weight: 700;
+    z-index: 1;
+  }
+
+  p {
+    font-size: 1.2rem;
+    margin: 0 0 25px 0;
+    font-weight: 500;
+    z-index: 1;
+  }
+
+  button {
+    background: #0675e6;
+    color: #fff;
+    border: none;
+    padding: 0.8rem 2rem;
+    font-size: 14px;
+    border-radius: 2rem;
+    cursor: pointer;
+    width: 140px;
+    text-align: center;
+    transition: 0.1s;
+    z-index: 1;
+
+    &:hover {
+      background: #0462c1;
+    }
+  }
+
+  &:before,
+  &:after {
+    content: ' ';
+    display: block;
+    position: absolute;
+    width: 500px;
+    height: 500px;
+    border: 1px solid #0474e6;
+    border-radius: 50%;
+    bottom: -260px;
+    z-index: 0;
+  }
+
+  &:before {
+    left: -100px;
+  }
+
+  &:after {
+    left: -200px;
+  }
+
+  @media (max-width: 768px) {
+    padding: 2rem;
+    align-items: center;
+    text-align: center;
+    min-height: 300px;
+
+    h1 {
+      font-size: 2rem;
+    }
+
+    p {
+      font-size: 1rem;
+    }
+
+    button {
+      width: 100%;
+    }
+  }
+}
+
+.rightPane {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 4rem;
+
+  @media (max-width: 768px) {
+    padding: 2rem;
+  }
+}
