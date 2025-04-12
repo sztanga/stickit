@@ -37,13 +37,30 @@ cp backend/.env.example backend/.env
 cp frontend/.env.example frontend/.env
 ```
 
-### 3. Start the App with Docker
+### 3. Install packages
+
+Install dependencies for Backend
+```bash
+cd backend && composer install
+```
+
+Come back to the root
+```bash
+cd ..
+```
+
+Install Packages for the Frontend
+```bash
+cd frontend && npm install
+```
+
+### 4. Start the App with Docker
 
 ```bash
 docker compose up --build
 ```
 
-### 4. Setup DB
+### 5. Setup DB
 
 Enter bash inside of the backend container
 ```bash
