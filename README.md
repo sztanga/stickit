@@ -33,9 +33,10 @@ docker compose up --build
 
 ```bash
 stickit/
-├── backend/               # Symfony backend
-│   ├── docker/            # Dockerfile for backend
-└──docker-compose.yml      # Main Docker
+├── backend/                        # Symfony backend
+│   ├── docker/                     # Dockerfile for backend
+└──docker-compose.yml               # Main Docker
+└──StickIt.postman_collection.json  # Main Docker
 ```
 
 ## How I think
