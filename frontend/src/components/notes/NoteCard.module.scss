@@ -1,16 +1,16 @@
 .note {
-  width: 200px;
-  min-height: 150px;
+  width: 220px;
+  min-height: 220px;
   padding: 1rem;
-  border-radius: 8px;
-  background: #fff;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.12); // 🧠 here’s the postcard look
+  border-radius: 12px;
   margin: 10px;
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
+  justify-content: flex-start;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
   font-family: 'Inter', sans-serif;
-  transition: transform 0.1s ease;
+  transition: all 0.15s ease;
+  position: relative;
 
   &:hover {
     transform: translateY(-3px);
@@ -39,5 +39,146 @@
   .content {
     margin-top: 1rem;
     font-size: 1rem;
+  }
+
+
+  .colorRow {
+    display: flex;
+    gap: 8px;
+    margin-bottom: 10px;
+  }
+
+  .colorCircle {
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    cursor: pointer;
+  }
+
+  .depthRow {
+    display: flex;
+    gap: 8px;
+    margin-bottom: 10px;
+  }
+
+  .depthCircle {
+    width: 24px;
+    height: 24px;
+    font-size: 0.8rem;
+    text-align: center;
+    line-height: 24px;
+    border-radius: 50%;
+    background: #eee;
+    cursor: pointer;
+    user-select: none;
+
+    &.active {
+      background: #333;
+      color: white;
+    }
+  }
+
+  .textarea {
+    background: transparent;
+    resize: none;
+    border: none;
+    font-size: 0.95rem;
+    flex-grow: 1;
+    outline: none;
+    font-family: inherit;
+    color: #333;
+    margin-top: 8px;
+    margin-bottom: auto;
+  }
+
+  .user {
+    font-size: 0.8rem;
+    color: #555;
+    text-align: right;
+    margin-top: 10px;
+  }
+
+  .deleteBtn {
+    position: absolute;
+    right: 8px;
+    top: 8px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    font-size: 1rem;
+  }
+
+  .saveBtn {
+    margin-top: 8px;
+    padding: 0.4rem 0.8rem;
+    font-size: 0.9rem;
+    border: none;
+    border-radius: 1rem;
+    background: #0675e6;
+    color: white;
+    cursor: pointer;
+
+    &:hover {
+      background: #055db6;
+    }
+  }
+
+  .toast {
+    position: absolute;
+    bottom: 8px;
+    left: 50%;
+    transform: translateX(-50%);
+    padding: 0.4rem 0.8rem;
+    font-size: 0.85rem;
+    border-radius: 1rem;
+    color: white;
+    animation: fadeInOut 2s ease forwards;
+    pointer-events: none;
+    z-index: 10;
+  }
+
+  .success {
+    background-color: #4caf50;
+  }
+
+  .error {
+    background-color: #f44336;
+  }
+
+  @keyframes fadeInOut {
+    0% {
+      opacity: 0;
+      transform: translateX(-50%) translateY(10px);
+    }
+    20% {
+      opacity: 1;
+      transform: translateX(-50%) translateY(0);
+    }
+    80% {
+      opacity: 1;
+      transform: translateX(-50%) translateY(0);
+    }
+    100% {
+      opacity: 0;
+      transform: translateX(-50%) translateY(-10px);
+    }
+  }
+
+  .colorCircle {
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    cursor: pointer;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .innerDot {
+    width: 6px;
+    height: 6px;
+    background-color: black;
+    border-radius: 50%;
   }
 }
