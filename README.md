@@ -33,8 +33,14 @@ docker compose up --build
 
 ```bash
 stickit/
-├── backend/                        # Symfony backend
-│   ├── docker/                     # Dockerfile for backend
+├── backend                         # Symfony backend
+│   └── docker                      # Dockerfile for backend
+├── frontend                        # React frontend
+    ├── docker                      # Dockerfile for frontend
+    └── src 
+        ├── components              # components used on the pages
+        ├── pages                   # app's pages
+        └── App.js                  # main file
 └──docker-compose.yml               # Main Docker
 └──StickIt.postman_collection.json  # Main Docker
 ```
@@ -50,4 +56,4 @@ stickit/
 8. Started working on the notes, created basic layout, I decided it will be intuitive to right click on the board to open the context menu and create a note.
 9. Note creation finished, now I had to work on edit and delete, nothing special, done quickly.
 10. Now the draggable part, I decided to not use any libraries as it isn't complicated task to do. I am autosaving the notes when they're dragged.
-11. 
+11. I fixed some routing issues on the frontend side.
