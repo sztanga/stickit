@@ -19,8 +19,9 @@ const RegisterForm = ({ onRegisterSuccess }) => {
             await api.post('/register', { email, password });
             setSuccess(true);
             onRegisterSuccess?.();
-        } catch {
-            setError('Email already used or invalid');
+        } catch (err) {
+            const message = err.response?.data?.error || 'Unexpected error occurred';
+            setError(message);
         }
     };
 

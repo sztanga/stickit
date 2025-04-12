@@ -11,6 +11,7 @@ use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\Validator\Validator\ValidatorInterface;
 use Symfony\Component\HttpFoundation\Response;
+use Doctrine\DBAL\Exception\UniqueConstraintViolationException;
 
 class AuthController extends AbstractController
 {
@@ -34,6 +35,12 @@ class AuthController extends AbstractController
         $errors = $validator->validate($user);
         if (count($errors) > 0) {
             return new JsonResponse(['error' => (string) $errors], Response::HTTP_BAD_REQUEST);
+        }
+
+        $userExists = $em->getRepository(User::class)->findOneBy(['email' => $data['email']]);
+
+        if ($userExists) {
+            return $this->json(['error' => 'Email already exists'], 400);
         }
 
         $em->persist($user);
