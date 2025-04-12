@@ -27,5 +27,15 @@ services:
     volumes:
       - db-data:/var/lib/mysql
 
+  frontend:
+    build:
+      context: ./frontend
+      dockerfile: docker/Dockerfile
+    container_name: stickit-frontend
+    ports:
+      - "19999:80"
+    depends_on:
+      - backend
+
 volumes:
   db-data:
