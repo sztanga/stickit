@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
-import api from '../../services/api';
-import NoteCard from './NoteCard';
+import api from '../services/api';
+import NoteCard from '../components/notes/NoteCard';
 import styles from './NotesBoard.module.scss';
 
 const NotesBoard = () => {
