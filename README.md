@@ -54,6 +54,11 @@ Install Packages for the Frontend
 cd frontend && npm install
 ```
 
+Generate JTW Key
+```bash
+cd backend && php bin/console lexik:jwt:generate-keypair
+```
+
 ### 4. Start the App with Docker
 
 ```bash
