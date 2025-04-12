@@ -43,8 +43,30 @@ cp frontend/.env.example frontend/.env
 docker compose up --build
 ```
 
-- Symfony API: http://localhost:8000
+### 4. Setup DB
 
+Enter bash inside of the backend container
+```bash
+docker compose exec backend bash
+```
+
+Run migrations
+```bash
+php bin/console doctrine:migrations:migrate
+```
+
+Create Database for testing
+```bash
+php bin/console doctrine:database:create --env=test
+```
+
+Run migrations for testing database
+```bash
+php bin/console doctrine:migrations:migrate --env=test
+```
+
+### Environment URLs:
+- Symfony API: http://localhost:8000
 - React Frontend: http://localhost:19999
 
 ## 📁 Project Structure
@@ -158,3 +180,38 @@ I will only explain it briefly.
 - Postman collection helps with manual API testing
 - Designed with separation of concerns: backend/ and frontend/ in one repo only to make it easier for you to test, but ideally should be split into two
 - No JS libraries for dragging/sorting — everything is native, lightweight and efficient
+
+## 🧪 Unit & Functional Testing
+
+This project uses PHPUnit with Symfony’s test tools to ensure 100% backend test coverage across all major components.
+
+### ✅ What’s Covered
+- User entity – getters, setters, roles, associations
+- Note entity – all fields and relationships
+- AuthController:
+  - /api/register
+  - /api/logout
+  - /api/me
+- NoteController:
+  - /api/notes CRUD
+  - Authorization (own notes only)
+  - Error conditions (missing note, access denied)
+
+### 📁 Where to Find Tests
+```bash
+backend/
+└── tests/
+    ├── Entity/
+    │   ├── UserTest.php
+    │   └── NoteTest.php
+    └── Controller/
+        ├── AuthControllerTest.php
+        └── NoteControllerTest.php
+```
+
+### 🛠️ How to Run
+Run from within the backend container:
+```bash
+docker compose exec backend php bin/phpunit
+```
+
