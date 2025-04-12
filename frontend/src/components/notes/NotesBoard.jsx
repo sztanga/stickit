@@ -7,6 +7,7 @@ const NotesBoard = () => {
     const [notes, setNotes] = useState([]);
     const [userEmail, setUserEmail] = useState('');
     const [contextMenu, setContextMenu] = useState(null);
+    const [tipVisible, setTipVisible] = useState(true);
 
     useEffect(() => {
         fetchNotes();
@@ -39,10 +40,16 @@ const NotesBoard = () => {
 
     return (
         <div id="notes-board"
-            className={styles.board}
+             className={styles.board}
              onContextMenu={(e) => {
                  e.preventDefault();
-                 setContextMenu({ x: e.clientX, y: e.clientY });
+                 const board = document.getElementById('notes-board');
+                 const boardRect = board.getBoundingClientRect();
+
+                 setContextMenu({
+                     x: e.clientX - boardRect.left,
+                     y: e.clientY - boardRect.top,
+                 });
              }}
              onClick={() => setContextMenu(null)}>
             {notes.map((note) => (
@@ -56,7 +63,7 @@ const NotesBoard = () => {
             {contextMenu && (
                 <div
                     className={styles.contextMenu}
-                    style={{ top: contextMenu.y, left: contextMenu.x }}
+                    style={{top: contextMenu.y, left: contextMenu.x}}
                     onClick={async () => {
                         try {
                             await api.post('/notes', {
@@ -75,6 +82,19 @@ const NotesBoard = () => {
                     }}
                 >
                     ➕ Create Note
+                </div>
+            )}
+
+            {tipVisible && (
+                <div className={styles.tipBox}>
+                    🖱️ Right click anywhere on the board to create a new note.
+                    <button
+                        className={styles.tipClose}
+                        onClick={() => setTipVisible(false)}
+                        title="Close tip"
+                    >
+                        ✕
+                    </button>
                 </div>
             )}
         </div>

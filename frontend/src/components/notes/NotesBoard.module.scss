@@ -1,9 +1,18 @@
 .board {
+  position: relative;
+  width: 100%;
+  min-height: calc(100vh - 82px - 75px);
   display: flex;
   flex-wrap: wrap;
-  padding: 2rem;
+  overflow: hidden;
   gap: 1rem;
   justify-content: center;
+  background-color: #fefefe;
+  background-image:
+          linear-gradient(to right, #eaeaea 1px, transparent 1px),
+          linear-gradient(to bottom, #eaeaea 1px, transparent 1px);
+  background-size: 40px 40px;
+  font-family: 'Inter', sans-serif;
 
   .contextMenu {
     position: absolute;
@@ -20,6 +29,31 @@
 
     &:hover {
       background: #f4f4f4;
+    }
+  }
+
+  .tipBox {
+    position: absolute;
+    top: 12px;
+    right: 12px;
+    background: #fffbe7;
+    border: 1px solid #e7dfb9;
+    padding: 0.5rem 1rem;
+    font-size: 0.9rem;
+    border-radius: 0.5rem;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.08);
+    z-index: 100;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+
+    .tipClose {
+      background: none;
+      border: none;
+      font-size: 1rem;
+      cursor: pointer;
+      line-height: 1;
+      color: #333;
     }
   }
 }
