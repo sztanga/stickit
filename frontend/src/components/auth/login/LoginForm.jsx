@@ -3,18 +3,20 @@ import api from '../../../services/api';
 import styles from '../layout/AuthLayout.module.scss';
 import AuthFormWrapper from '../form-wrapper/AuthFormWrapper';
 import { Link } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 
 const LoginForm = ({ onLoginSuccess }) => {
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
     const [error, setError] = useState('');
+    const navigate = useNavigate();
 
     const handleSubmit = async (e) => {
         e.preventDefault();
 
         try {
             await api.post('/login', { email, password });
-            onLoginSuccess?.();
+            navigate('/notes');
         } catch {
             setError('Invalid credentials');
         }
